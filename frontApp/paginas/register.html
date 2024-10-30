@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/estilos/styleSingup.css">
+
+    <title>CineVerse-Register</title>
+</head>
+
+<body>
+
+    <div class="register-container">
+        <h1>¡Regístrate!</h1>
+
+        <div class="form-grid">
+            <form action="#">
+
+                <!--PAGE 1-->
+                <div class="page-container">
+                    <div class="right-section">
+                        <div class="avatar-section">
+                            <div class="avatar-placeholder">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v12h16V6H4zm8 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                </svg>
+                            </div>
+
+                            <div class="upload-button">
+                                <label for="avatar"><strong>Cargar Avatar</strong></label>
+                                <input type="file" name="avatar" id="avatar">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Nombre Completo" class="input-field">
+                    <div class="select-wrapper">
+                        <select class="input-field">
+                            <option value="" disabled selected>Género</option>
+                            <option value="m">Masculino</option>
+                            <option value="f">Femenino</option>
+                            <option value="o">Otro</option>
+                        </select>
+                    </div>
+                    <div class="date-wrapper">
+                        <input type="date" class="input-field" placeholder="Fecha de Nacimiento">
+                    </div>
+
+                    <div class="buttons-container">
+                        <button class="register-button">Registrar</button>
+                    </div>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
