@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <!-- Define Persistence Unit -->
+  <persistence-unit name="my_persistence_unit" transaction-type="JTA">
+    <class>com.itson.domain.Administrador</class>
+    <class>com.itson.domain.Anclada</class>
+    <class>com.itson.domain.Comentario</class>
+    <class>com.itson.domain.Comun</class>
+    <class>com.itson.domain.Credencial</class>
+    <class>com.itson.domain.Estado</class>
+    <class>com.itson.domain.Municipio</class>
+    <class>com.itson.domain.Normal</class>
+    <class>com.itson.domain.Publicacion</class>
+    <class>com.itson.domain.Usuario</class>
+  </persistence-unit>
+</persistence>
