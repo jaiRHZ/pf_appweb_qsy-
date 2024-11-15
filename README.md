@@ -1,6 +1,7 @@
 # pf_appweb_qsy-
 
 Equipo "Que Se Yo"
+Tematica: Películas
 
 Integrante(s):
 Jairo G. Rodríguez Hernández | 00000213248
