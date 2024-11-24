@@ -2,11 +2,11 @@ package web.blogdominio.dao.imp;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaQuery;
 import web.blogdominio.dao.IUsuarioDAO;
 import web.blogdominio.dao.exceptions.NonexistentEntityException;
 import web.blogdominio.domain.Municipio;

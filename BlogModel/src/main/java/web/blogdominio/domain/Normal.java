@@ -3,8 +3,8 @@ package web.blogdominio.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.*;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.*;
 
 /**
  * Representa a un usuario de tipo "normal" en el sistema, extendiendo la clase {@link Usuario}.

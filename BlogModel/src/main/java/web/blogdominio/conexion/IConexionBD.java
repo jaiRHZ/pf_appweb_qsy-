@@ -1,6 +1,6 @@
 package web.blogdominio.conexion;
 
-import javax.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityManagerFactory;
 
 /**
  * Interface para gestionar la conexión con la base de datos mediante JPA.

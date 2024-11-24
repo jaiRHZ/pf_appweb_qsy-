@@ -3,7 +3,7 @@ package web.blogdominio.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa una publicación de tipo "común" en el sistema, la cual es creada

@@ -1,7 +1,7 @@
 package web.blogdominio.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa una credencial en el sistema. La clase incluye información de
