@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa un comentario en una publicación, con posibilidad de comentarios

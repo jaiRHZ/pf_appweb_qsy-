@@ -3,7 +3,7 @@ package web.blogdominio.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Objects;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa una publicación en el sistema, que contiene un título, contenido,

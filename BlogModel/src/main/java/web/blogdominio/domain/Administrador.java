@@ -3,7 +3,7 @@ package web.blogdominio.domain;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa un administrador en el sistema, el cual puede gestionar publicaciones ancladas.

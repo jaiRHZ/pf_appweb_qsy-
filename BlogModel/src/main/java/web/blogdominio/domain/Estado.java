@@ -2,7 +2,7 @@ package web.blogdominio.domain;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa un estado en el sistema.
