@@ -25,3 +25,4 @@ replay_pid*
 /BlogModel/target/
 *.DS_Store
 /BlogWeb/target/
+/polsito/target/
