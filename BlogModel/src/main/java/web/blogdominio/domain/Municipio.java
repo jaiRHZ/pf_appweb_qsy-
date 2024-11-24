@@ -3,7 +3,7 @@ package web.blogdominio.domain;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Representa un municipio en el sistema.

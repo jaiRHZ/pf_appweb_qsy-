@@ -1,7 +1,8 @@
-package web.blogdominio.conexion;
+package web.blogdominio.conexion.imp;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import web.blogdominio.conexion.IConexionBD;
 
 /**
  * Clase que implementa la interfaz {@link IConexionBD} y proporciona
