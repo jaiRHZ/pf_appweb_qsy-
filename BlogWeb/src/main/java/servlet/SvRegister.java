@@ -74,7 +74,7 @@ public class SvRegister extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/paginas/PaginaPrincipal.jsp");
 
         }
-//        response.sendRedirect("/paginas/Login.jsp");
+        response.sendRedirect("/paginas/login.jsp");
     }
 
 }

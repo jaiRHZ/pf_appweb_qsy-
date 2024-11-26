@@ -43,7 +43,7 @@ public class SvLogin extends HttpServlet {
             sesion.setAttribute("usuario", usuario);
             sesion.setAttribute("publicacionesComunes", publicacionesComunes);
             sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
-            response.sendRedirect(request.getContextPath() + "/paginas/PaginaPrincipal.jsp");
+            response.sendRedirect(request.getContextPath() + "/paginas/login.jsp");
 
         }else{
             response.sendRedirect("errores.jsp");
