@@ -71,10 +71,10 @@ public class SvRegister extends HttpServlet {
             sesion.setAttribute("usuario", UsuarioNormalNuevo);
             sesion.setAttribute("publicacionesComunes", publicacionesComunes);
             sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
-            response.sendRedirect(request.getContextPath() + "/paginas/PaginaPrincipal.jsp");
+            response.sendRedirect(request.getContextPath() + "/paginas/home.jsp");
 
         }
-        response.sendRedirect("/paginas/login.jsp");
+//        response.sendRedirect("/paginas/Login.jsp");
     }
 
 }
