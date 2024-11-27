@@ -20,6 +20,10 @@
         <servlet-name>SvRegister</servlet-name>
         <servlet-class>servlet.SvRegister</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SvLogOut</servlet-name>
+        <servlet-class>servlet.SvLogOut</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SvLogin</servlet-name>
         <url-pattern>/SvLogin</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SvRegister</servlet-name>
         <url-pattern>/SvRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvLogOut</servlet-name>
+        <url-pattern>/SvLogOut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

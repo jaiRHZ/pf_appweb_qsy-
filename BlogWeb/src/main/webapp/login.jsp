@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/estilos/styleLogin.css">
+        <link rel="stylesheet" type="text/css" href="./estilos/styleLogin.css">
         <title>Cineverse-Login</title>
     </head>
 
@@ -33,12 +33,12 @@
             <h1>CineVerse</h1>
 
             <p class="subtitle">Tu portal de películas</p>
-
-            <input type="email" placeholder="Email" class="input-field">
-            <input type="password" placeholder="Contraseña" class="input-field">
-            <button class="login-button">Iniciar Sesión</button>
-
-            <a href="#" class="register-link">Registrarse</a>
+            <form action="/BlogModel/SvLogin" method="POST">
+                <input name="email" type="email" placeholder="Email" class="input-field">
+                <input name="contrasenia"type="password" placeholder="Contraseña" class="input-field">
+                <button type="submit" class="login-button">Iniciar Sesión</button>
+            </form>
+            <a href="register.jsp" class="register-link">Registrarse</a>
         </div>
     </body>
 

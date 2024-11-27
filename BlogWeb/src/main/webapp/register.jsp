@@ -12,23 +12,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>¡Registrate!</title>
-        <link rel="stylesheet" href="/estilos/styleSingup.css">
+       <link rel="stylesheet" href="./estilos/styleSingup.css">
     </head>
     <body>
         <div class="container">
             <h1>¡Registrate!</h1>
-            <form>
+            <form action="/BlogModel/SvRegister" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nombre" required>
+                        <input name="nombreCompleto" type="text" class="form-control" placeholder="Nombre" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="date" class="form-control" required>
+                            <input name="fechaNacimiento" type="date" class="form-control" required>
                         </div>
                         <div class="select-wrapper">
-                            <select class="input-field">
+                            <select name="genero" class="input-field">
                                 <option value="" disabled selected>Género</option>
                                 <option value="m">Masculino</option>
                                 <option value="f">Femenino</option>
@@ -38,34 +38,34 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email" required>
+                        <input name="email" type="email" class="form-control" placeholder="Email" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Teléfono" required>
+                            <input name="telefono" type="tel" class="form-control" placeholder="Teléfono" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Ciudad" required>
+                            <input name="ciudad" type="text" class="form-control" placeholder="Ciudad" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Municipio" required>
+                            <input name="municipio" type="text" class="form-control" placeholder="Municipio" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Estado" required>
+                            <input name="estado" type="text" class="form-control" placeholder="Estado" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" required>
+                        <input name="contrasenia" type="password" class="form-control" placeholder="Contraseña" required>
                     </div>
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="btn btn-cancel">Cancelar</button>
+                    <button type="button" class="btn btn-cancel" onclick="location.href='login.jsp'">Cancelar</button>
                     <button type="submit" class="btn btn-register">Registrar</button>
                 </div>
             </form>

@@ -4,7 +4,15 @@
     Author     : Paul Vazquez
     Author     : Jairo Rodriguez
 --%>
-
+<%@page import="web.blogdominio.domain.Anclada"%>
+<%@page import="web.blogdominio.domain.Comentario"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="web.blogdominio.domain.Administrador"%>
+<%@page import="web.blogdominio.domain.Normal"%>
+<%@page import="java.util.List"%>
+<%@page import="web.blogdominio.domain.Comun"%>
+<%@page import="web.blogdominio.domain.Comun"%>
+<%@page import="web.blogdominio.domain.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +20,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
-        <link rel="stylesheet" href="/estilos/styleHome.css" />
+        <link rel="stylesheet" href="./estilos/styleHome.css" />
     </head>
     <body>
         <div class="container">
@@ -112,11 +120,22 @@
                             d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                             />
                         </svg>
-                        <span>Perfil</span>
+
+                        <%
+                            Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                        %>
+                        <span><%=usuario.getNombreCompleto()%></span>
                     </div>
-                    <button class="post-button">Post</button>
+                    <!--<button class="post-button">Post</button>-->
+                    <form action="/BlogModel/SvLogOut">
+                        <button class="post-button">Salir</button>
+                    </form>
+
                 </nav>
             </aside>
+
+
+
 
             <!-- Contenido principal -->
             <main class="main-content">
@@ -138,6 +157,7 @@
                             class="post-input"
                             />
                         <button class="post-btn">Post</button>
+
                     </div>
                 </div>
 
