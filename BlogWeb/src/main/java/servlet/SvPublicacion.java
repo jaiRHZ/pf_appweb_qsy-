@@ -1,4 +1,3 @@
-
 package servlet;
 
 import fabrica.FabricaNegocio;
@@ -9,6 +8,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.List;
+import web.blogdominio.domain.Anclada;
 import web.blogdominio.domain.Comun;
 import web.blogdominio.domain.Usuario;
 
@@ -28,20 +30,24 @@ public class SvPublicacion extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String publicacion = request.getParameter("publicacion");
+        String url = request.getParameter("url");
 
         IFabricaNegocio fabricaNegocio = new FabricaNegocio();
-        Comun publicacionComun = new Comun();
+
+        
+
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        Comun publicacionComun = new Comun(usuario, "titulo", publicacion, url);
 
-        publicacionComun.setContenido(publicacion);
-        publicacionComun.setFechaHoraCreacion(Calendar.getInstance());
-        publicacionComun.setTitulo("publicacion");
-        publicacionComun.setUsuario(usuario);
         fabricaNegocio.createPublicacionNegocio().registrarPublicacion(publicacionComun);
+        HttpSession sesion = request.getSession();
+        
+        List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
+        List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
+        sesion.setAttribute("publicacionesComunes", publicacionesComunes);
+        sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
 
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write("Publicación enviada con éxito");
+        response.sendRedirect(request.getContextPath() + "/home.jsp");
 
     }
 

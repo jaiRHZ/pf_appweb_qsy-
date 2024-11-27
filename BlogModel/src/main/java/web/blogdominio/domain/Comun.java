@@ -78,8 +78,8 @@ public class Comun extends Publicacion implements Serializable {
      * @param titulo el título de la publicación
      * @param contenido el contenido de la publicación
      */
-    public Comun(Usuario usuario, Calendar fechaHoraCreacion, String titulo, String contenido) {
-        super(fechaHoraCreacion, titulo, contenido);
+    public Comun(Usuario usuario, String titulo, String contenido) {
+        super(titulo, contenido);
         this.usuario = usuario;
     }
 
@@ -90,8 +90,8 @@ public class Comun extends Publicacion implements Serializable {
      * @param titulo el título de la publicación
      * @param contenido el contenido de la publicación
      */
-    public Comun(Calendar fechaHoraCreacion, String titulo, String contenido) {
-        super(fechaHoraCreacion, titulo, contenido);
+    public Comun(String titulo, String contenido) {
+        super(titulo, contenido);
     }
 
     /**
@@ -109,6 +109,12 @@ public class Comun extends Publicacion implements Serializable {
         this.usuario = usuario;
     }
 
+    public Comun(Usuario usuario, String titulo, String contenido, String url) {
+        super(titulo, contenido, url);
+        this.usuario = usuario;
+    }
+
+    
     /**
      * Obtiene el usuario que creó la publicación.
      * 

@@ -39,6 +39,10 @@ public class SvLogin extends HttpServlet {
                 validarInicioUsuario(email, contrasenia);
         List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
         List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
+        
+//        for (Comun publicacionComun : publicacionesComunes) {
+//            System.out.println(publicacionComun.toString());
+//        }
         if (usuario != null) {
 
             HttpSession sesion = request.getSession();

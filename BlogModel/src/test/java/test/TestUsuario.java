@@ -10,5 +10,8 @@ public class TestUsuario {
         Facade faceid = new Facade();
         Administrador usuario = new Administrador("Pol", "pol@pol", "12345678", "obregon", Calendar.getInstance(), Genero.MASCULINO, new Credencial("poliester", "123456789"), new Municipio("Cajeme", new Estado("Sonora")));
         faceid.useUsuarioDAO().create(usuario);
+        
+        Comun comun = new Comun(usuario, "Whiplash", "Oscar a mejor actor", "https://open.spotify.com/intl-es/album/7bsistH3CCaUMqHCjNFpZT");
+        faceid.usePublicacionDAO().create(comun);
     }
 }

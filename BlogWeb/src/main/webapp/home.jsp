@@ -151,107 +151,163 @@
                         class="avatar"
                         />
                     <div class="post-input-container">
-                        <input
-                            type="text"
-                            placeholder="¿En qué piensas?"
-                            class="post-input"
-                            />
-                        <button class="post-btn">Post</button>
-
+                        <form action="/BlogModel/SvPublicacion" method="POST">
+                            <input name="publicacion"
+                                   type="text"
+                                   placeholder="¿En qué piensas?"
+                                   class="post-input"
+                                   />
+                            <br>
+                            <input name="url"
+                                   type="text"
+                                   placeholder="URL imagen"
+                                   class="post-input"
+                                   />
+                            <button type="submit" class="post-btn">Post</button>
+                        </form> 
                     </div>
                 </div>
 
                 <!-- Posts -->
                 <div class="posts">
-                    <article class="post">
-                        <img
-                            src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
-                            alt="User Avatar"
-                            class="avatar"
+                    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+                    <c:forEach items="${publicacionesComunes}" var="publicacion">
+                        <article class="post">
+                            <img
+                                src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
+                                alt="User Avatar"
+                                class="avatar"
+                                />
+                            <div class="post-content">
+                                <div class="post-header">
+                                    <div class="post-user">
+                                        <h3>${publicacion.getUsuario().getNombreCompleto()}</h3>
+                                        <span class="verified-badge">✓</span>
+                                    </div>
+                                    <%if (usuario instanceof Administrador) {%>
+                                    <button class="delete-btn">Borrar Publicación</button>
+                                    <%}%>
+                                </div>
+                                <p class="post-text">
+                                    ${publicacion.getContenido()}
+                                </p>
+                                <img
+                                    src=${publicacion.getUrl()}
+                                    alt="Descripción" 
+                                    class="imagen-publicacion"
+                                    />
+                                
+                                <div class="comments-section">
+                                    <h4>Comentarios</h4>
+                                    <div class="comment">
+                                        <img
+                                            src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
+                                            alt="Commenter Avatar"
+                                            class="avatar"
+                                            />
+                                        <p>Jairo Rodriguez: No entendí</p>
+                                    </div>
+                                    <div class="comment-input">
+                                        <input
+                                            type="text"
+                                            placeholder="Añadir un comentario"
+                                            class="comment-field"
+                                            />
+                                        <button class="comment-btn">Comentar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        </c:forEach>
+                        <article class="post">
+                            <img
+                                src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
+                                alt="User Avatar"
+                                class="avatar"
+                                />
+                            <div class="post-content">
+                                <div class="post-header">
+                                    <div class="post-user">
+                                        <h3>Paul Vazquez</h3>
+                                        <span class="verified-badge">✓</span>
+                                    </div>
+                                    <button class="delete-btn">Borrar Publicación</button>
+                                </div>
+                                <p class="post-text">
+                                    The movie wants to bring you down into the waste yard that is
+                                    Hollywood then pull you out to see the beauty that grows out of
+                                    the trash. The problem is the movie spends so much time in the
+                                    mud, and goes so deep into it that by the time it tries to pull
+                                    you out at the end it's too late.
+                                </p>
+                                <img
+                                    src="https://www.loslunesseriefilos.com/wp-content/uploads/2022/09/babylon-pelicula.jpg"
+                                    alt="Post image"
+                                    class="post-image"
+                                    />
+                                <div class="comments-section">
+                                    <h4>Comentarios</h4>
+                                    <div class="comment">
+                                        <img
+                                            src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
+                                            alt="Commenter Avatar"
+                                            class="avatar"
+                                            />
+                                        <p>Jairo Rodriguez: No entendí</p>
+                                    </div>
+                                    <div class="comment-input">
+                                        <input
+                                            type="text"
+                                            placeholder="Añadir un comentario"
+                                            class="comment-field"
+                                            />
+                                        <button class="comment-btn">Comentar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </main>
+
+                <!-- Sidebar derecho -->
+                <aside class="sidebar-right">
+                    <div class="search-container">
+                        <input
+                            type="text"
+                            placeholder="Buscar Publicación"
+                            class="search-input"
                             />
-                        <div class="post-content">
-                            <div class="post-header">
+                    </div>
+                    <div class="pinned-posts">
+                        <h2>📌 Publicaciones Ancladas</h2>
+                        <article class="pinned-post">
+                            <img
+                                src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
+                                alt="User Avatar"
+                                class="avatar"
+                                />
+                            <div class="pinned-content">
                                 <div class="post-user">
-                                    <h3>Paul Vazquez</h3>
+                                    <h3>Jairo Rodriguez</h3>
                                     <span class="verified-badge">✓</span>
                                 </div>
+                                <p>
+                                    The Substance is a powerful, haunting exploration of desire and
+                                    ambition, especially through the eyes of its lead female
+                                    character. Her journey is intense and layered, capturing the
+                                    struggle between personal boundaries and the pull of a
+                                    mysterious force.
+                                </p>
+                                <img
+                                    src="https://images.mubicdn.net/images/film/332868/cache-966973-1717030578/image-w1280.jpg?size=700x"
+                                    alt="Portal Revolution"
+                                    class="pinned-image"
+                                    />
                                 <button class="delete-btn">Borrar Publicación</button>
                             </div>
-                            <p class="post-text">
-                                The movie wants to bring you down into the waste yard that is
-                                Hollywood then pull you out to see the beauty that grows out of
-                                the trash. The problem is the movie spends so much time in the
-                                mud, and goes so deep into it that by the time it tries to pull
-                                you out at the end it's too late.
-                            </p>
-                            <img
-                                src="https://www.loslunesseriefilos.com/wp-content/uploads/2022/09/babylon-pelicula.jpg"
-                                alt="Post image"
-                                class="post-image"
-                                />
-                            <div class="comments-section">
-                                <h4>Comentarios</h4>
-                                <div class="comment">
-                                    <img
-                                        src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
-                                        alt="Commenter Avatar"
-                                        class="avatar"
-                                        />
-                                    <p>Jairo Rodriguez: No entendí</p>
-                                </div>
-                                <div class="comment-input">
-                                    <input
-                                        type="text"
-                                        placeholder="Añadir un comentario"
-                                        class="comment-field"
-                                        />
-                                    <button class="comment-btn">Comentar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </main>
-
-            <!-- Sidebar derecho -->
-            <aside class="sidebar-right">
-                <div class="search-container">
-                    <input
-                        type="text"
-                        placeholder="Buscar Publicación"
-                        class="search-input"
-                        />
-                </div>
-                <div class="pinned-posts">
-                    <h2>📌 Publicaciones Ancladas</h2>
-                    <article class="pinned-post">
-                        <img
-                            src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
-                            alt="User Avatar"
-                            class="avatar"
-                            />
-                        <div class="pinned-content">
-                            <div class="post-user">
-                                <h3>Jairo Rodriguez</h3>
-                                <span class="verified-badge">✓</span>
-                            </div>
-                            <p>
-                                The Substance is a powerful, haunting exploration of desire and
-                                ambition, especially through the eyes of its lead female
-                                character. Her journey is intense and layered, capturing the
-                                struggle between personal boundaries and the pull of a
-                                mysterious force.
-                            </p>
-                            <img
-                                src="https://images.mubicdn.net/images/film/332868/cache-966973-1717030578/image-w1280.jpg?size=700x"
-                                alt="Portal Revolution"
-                                class="pinned-image"
-                                />
-                            <button class="delete-btn">Borrar Publicación</button>
-                        </div>
-                    </article>
-                </div>
-            </aside>
-        </div>
-    </body>
-</html>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </body>
+    </html>
