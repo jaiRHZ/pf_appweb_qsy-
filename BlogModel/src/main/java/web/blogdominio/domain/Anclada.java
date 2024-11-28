@@ -96,6 +96,14 @@ public class Anclada extends Publicacion implements Serializable {
         this.administrador = administrador;
     }
 
+    public Anclada(Administrador administrador, String titulo, String contenido, String url) {
+        super(titulo, contenido, url);
+        this.administrador = administrador;
+        
+    }
+    
+    
+
     /**
      * Obtiene el administrador que gestiona esta publicación anclada.
      * 

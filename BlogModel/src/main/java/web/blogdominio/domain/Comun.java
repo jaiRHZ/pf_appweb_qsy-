@@ -52,7 +52,7 @@ public class Comun extends Publicacion implements Serializable {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
     
-    @OneToMany(mappedBy = "publicacionComun", cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "publicacionComun", cascade = CascadeType.REMOVE)
     private List<Comentario> comentarios;
 
     /**

@@ -23,7 +23,20 @@ public class SvPublicacion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String idPublicacion = request.getParameter("idPublicacion");
+        System.out.println(idPublicacion);
 
+        IFabricaNegocio fabricaNegocio = new FabricaNegocio();
+
+        fabricaNegocio.createPublicacionNegocio().eliminarPublicacion(Long.parseLong(idPublicacion));
+        HttpSession sesion = request.getSession();
+
+        List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
+        List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
+        sesion.setAttribute("publicacionesComunes", publicacionesComunes);
+        sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
+
+        response.sendRedirect(request.getContextPath() + "/home.jsp");
     }
 
     @Override
@@ -34,20 +47,36 @@ public class SvPublicacion extends HttpServlet {
 
         IFabricaNegocio fabricaNegocio = new FabricaNegocio();
 
-        
-
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Comun publicacionComun = new Comun(usuario, "titulo", publicacion, url);
 
         fabricaNegocio.createPublicacionNegocio().registrarPublicacion(publicacionComun);
         HttpSession sesion = request.getSession();
-        
+
         List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
         List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
         sesion.setAttribute("publicacionesComunes", publicacionesComunes);
         sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
 
         response.sendRedirect(request.getContextPath() + "/home.jsp");
+
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String idPublicacion = req.getParameter("idPublicacion");
+
+        IFabricaNegocio fabricaNegocio = new FabricaNegocio();
+
+        fabricaNegocio.createPublicacionNegocio().eliminarPublicacion(Long.parseLong(idPublicacion));
+        HttpSession sesion = req.getSession();
+
+        List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
+        List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
+        sesion.setAttribute("publicacionesComunes", publicacionesComunes);
+        sesion.setAttribute("publicacionesAncladas", publicacionesAncladas);
+
+        resp.sendRedirect(req.getContextPath() + "/home.jsp");
 
     }
 

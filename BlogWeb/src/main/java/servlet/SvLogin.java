@@ -40,9 +40,9 @@ public class SvLogin extends HttpServlet {
         List<Comun> publicacionesComunes = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesComunes();
         List<Anclada> publicacionesAncladas = fabricaNegocio.createPublicacionNegocio().consultarPublicacionesAncladas();
         
-//        for (Comun publicacionComun : publicacionesComunes) {
-//            System.out.println(publicacionComun.toString());
-//        }
+//        for (Anclada publicacionAnclada : publicacionesAncladas) {
+//           System.out.println(publicacionAnclada.toString());
+//       }
         if (usuario != null) {
 
             HttpSession sesion = request.getSession();

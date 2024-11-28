@@ -1,6 +1,7 @@
 
 package fabrica;
 
+import negocio.ComentarioNegocio;
 import negocio.PublicacionNegocio;
 import negocio.UsuarioNegocio;
 import web.blogdominio.facade.IFacade;
@@ -26,6 +27,11 @@ IFacade facade;
     @Override
     public PublicacionNegocio createPublicacionNegocio() {
         return new PublicacionNegocio(facade);
+    }
+
+    @Override
+    public ComentarioNegocio createComentarioNegocio() {
+        return new ComentarioNegocio(facade);
     }
 
     

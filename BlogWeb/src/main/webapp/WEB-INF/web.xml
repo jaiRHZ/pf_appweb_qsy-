@@ -24,6 +24,18 @@
         <servlet-name>SvLogOut</servlet-name>
         <servlet-class>servlet.SvLogOut</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SvComentario</servlet-name>
+        <servlet-class>servlet.SvComentario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SvPublicacionAnclada</servlet-name>
+        <servlet-class>servlet.SvPublicacionAnclada</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>noimporta</servlet-name>
+        <servlet-class>servlet.noimporta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SvLogin</servlet-name>
         <url-pattern>/SvLogin</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>SvLogOut</servlet-name>
         <url-pattern>/SvLogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvComentario</servlet-name>
+        <url-pattern>/SvComentario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SvPublicacionAnclada</servlet-name>
+        <url-pattern>/SvPublicacionAnclada</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>noimporta</servlet-name>
+        <url-pattern>/noimporta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
