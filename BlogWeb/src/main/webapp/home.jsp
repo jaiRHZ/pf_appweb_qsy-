@@ -21,6 +21,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
         <link rel="stylesheet" href="./estilos/styleHome.css" />
+
+
     </head>
     <body>
         <div class="container">
@@ -123,13 +125,18 @@
 
                         <%
                             Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+                            boolean usuarioEsAdministrador = false;
+                            if (usuario != null && usuario instanceof Administrador) {
+                                usuarioEsAdministrador = true;
+                            }
                         %>
-                        <span><%=usuario.getNombreCompleto()%></span>
-                    </div>
-                    <!--<button class="post-button">Post</button>-->
-                    <form action="/BlogModel/SvLogOut">
-                        <button class="post-button">Salir</button>
-                    </form>
+                        <div id="usuario" data-es-administrador="<%= usuarioEsAdministrador%>">
+                            <span><%=usuario.getNombreCompleto()%></span>
+                        </div>
+                        <!--<button class="post-button">Post</button>-->
+                        <form action="/BlogModel/SvLogOut">
+                            <button class="post-button">Salir</button>
+                        </form>
 
                 </nav>
             </aside>
@@ -151,86 +158,18 @@
                         class="avatar"
                         />
                     <div class="post-input-container">
-                        <form action="/BlogModel/SvPublicacion" method="POST">
-                            <input name="publicacion"
-                                   type="text"
-                                   placeholder="¿En qué piensas?"
-                                   class="post-input"
-                                   />
+                        <form id="post-form">
+                            <input id="publicacion" name="publicacion" type="text" placeholder="¿En qué piensas?" class="post-input" />
                             <br>
-                            <input name="url"
-                                   type="text"
-                                   placeholder="URL imagen"
-                                   class="post-input"
-                                   />
+                            <input id="url" name="url" type="text" placeholder="URL imagen" class="post-input" />
                             <button type="submit" class="post-btn">Post</button>
-                        </form> 
+                        </form>
                     </div>
                 </div>
 
                 <!-- Posts -->
                 <div class="posts">
-                    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-                    <c:forEach items="${publicacionesComunes}" var="publicacion">
-                        <article class="post">
-                            <img
-                                src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
-                                alt="User Avatar"
-                                class="avatar"
-                                />
-                            <div class="post-content">
-                                <div class="post-header">
-                                    <div class="post-user">
-                                        <h3>${publicacion.getUsuario().getNombreCompleto()}</h3>
-                                        <span class="verified-badge">✓</span>
-                                    </div>
-                                    <%if (usuario instanceof Administrador) {%>
-                                    <form action="/BlogModel/SvPublicacion" method="GET">
-                                        <button name="idPublicacion" value=${publicacion.getId()} class="delete-btn">Borrar Publicación</button>
-                                    </form>
-                                    <%}%>
-                                </div>
-                                <p class="post-text">
-                                    ${publicacion.getContenido()}
-                                </p>
-                                <img
-                                    src=${publicacion.getUrl()}
-                                    alt="Descripción" 
-                                    class="post-image"
-                                    />
 
-                                <div class="comments-section">
-                                    <h4>Comentarios</h4>
-
-                                    <c:forEach items="${publicacion.comentarios}" var="comentario">
-                                        <div class="comment">
-                                            <img
-                                                src="https://e7.pngegg.com/pngimages/348/800/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child.png"
-                                                alt="Commenter Avatar"
-                                                class="avatar"
-                                                />
-                                            <p>${comentario.usuarioNormal.nombreCompleto}: ${comentario.contenido}</p>
-                                        </div>
-                                    </c:forEach>
-                                    <%if (usuario instanceof Normal) {%>
-
-                                    <div class="comment-input">
-                                        <form action="/BlogModel/SvComentario" method="POST">
-                                            <input
-                                                name="contenido"
-                                                type="text"
-                                                placeholder="Añadir un comentario"
-                                                class="comment-field"
-                                                />
-                                            <button type="submit" name="idPublicacion" value=${publicacion.id} class="comment-btn">Comentar</button>
-                                        </form>
-                                    </div>
-                                    <%}%>
-
-                                </div>
-                            </div>
-                        </article>
-                    </c:forEach>
 
                 </div>
             </main>
@@ -303,4 +242,6 @@
             </aside>
         </div>
     </body>
+    <script src="./script/cargarPublicacionesComunes.js"></script>
+    <script src="./script/agregarPublicacionComun.js"></script>
 </html>
