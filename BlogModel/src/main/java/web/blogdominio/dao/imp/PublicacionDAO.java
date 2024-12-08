@@ -72,16 +72,11 @@ public class PublicacionDAO implements Serializable, IPublicacionDAO {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Comun comun;
-            try {
-                comun = em.find(Comun.class, id);
-            } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The comun with id " + id + " no longer exists.", enfe);
+            Publicacion comun = em.find(Publicacion.class, id);
+            if (comun == null) {
+                throw new NonexistentEntityException("The comun with id " + id + " no longer exists.");
             }
-            if (comun != null) {
-                em.remove(comun);
-            }
-            //comentario = em.merge(comentario);
+            em.remove(comun);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

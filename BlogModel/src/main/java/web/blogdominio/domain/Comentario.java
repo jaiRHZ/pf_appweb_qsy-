@@ -52,7 +52,7 @@ public class Comentario implements Serializable {
     /**
      * Publicación común a la cual pertenece el comentario.
      */
-    @ManyToOne()
+    @ManyToOne(cascade = {CascadeType.REMOVE})
     @JoinColumn(name = "publicacionComun_id")
     private Comun publicacionComun;
 

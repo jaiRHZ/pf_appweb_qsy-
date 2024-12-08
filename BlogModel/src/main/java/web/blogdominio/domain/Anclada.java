@@ -49,9 +49,9 @@ public class Anclada extends Publicacion implements Serializable {
      * @param titulo El título de la publicación.
      * @param contenido El contenido de la publicación.
      */
-    public Anclada(Administrador administrador, Calendar fechaHoraCreacion, String titulo, 
+    public Anclada(Administrador administrador, String titulo, 
             String contenido) {
-        super(fechaHoraCreacion, titulo, contenido);
+        super(titulo, contenido);
         this.administrador = administrador;
     }
 
@@ -73,9 +73,9 @@ public class Anclada extends Publicacion implements Serializable {
      * @param contenido El contenido de la publicación.
      * @param fechaHoraEdicion La fecha y hora de la última edición de la publicación.
      */
-    public Anclada(Administrador administrador, Calendar fechaHoraCreacion, String titulo, 
+    public Anclada(Administrador administrador, String titulo, 
             String contenido, Calendar fechaHoraEdicion) {
-        super(fechaHoraCreacion, titulo, contenido, fechaHoraEdicion);
+        super(titulo, contenido, fechaHoraEdicion);
         this.administrador = administrador;
     }
 
@@ -95,6 +95,14 @@ public class Anclada extends Publicacion implements Serializable {
         super(id, fechaHoraCreacion, titulo, contenido, fechaHoraEdicion);
         this.administrador = administrador;
     }
+
+    public Anclada(Administrador administrador, String titulo, String contenido, String url) {
+        super(titulo, contenido, url);
+        this.administrador = administrador;
+        
+    }
+    
+    
 
     /**
      * Obtiene el administrador que gestiona esta publicación anclada.

@@ -2,18 +2,15 @@
 package filter;
 
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -29,7 +26,7 @@ public class FiltroLogueo implements Filter {
     public void destroy() {
     }
     private final static String[] pathsPublicos = {
-        "paginas/Register.jsp", "estilos", "scripts", "SvRegister", "SvLogin"};
+        "register.jsp", "estilos", "scripts", "SvRegister", "SvLogin", "errores.jsp"};
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -39,7 +36,7 @@ public class FiltroLogueo implements Filter {
         boolean isUsuarioLogueado = this.isUsuarioLogueado(httpRequest);
         if (isPathPrivado && !isUsuarioLogueado) {
             request.getServletContext()
-                    .getRequestDispatcher("/paginas/Login.jsp")
+                    .getRequestDispatcher("/login.jsp")
                     .forward(request, response);
             return;
 

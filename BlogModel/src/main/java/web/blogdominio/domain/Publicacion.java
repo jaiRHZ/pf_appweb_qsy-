@@ -50,6 +50,9 @@ public class Publicacion implements Serializable {
     @Column(name = "fechaEdicion", nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar fechaHoraEdicion;
+    
+    @Column(name = "url", nullable = true, length = 1000)
+    private String url;
 
     /**
      * Constructor sin parámetros para crear una publicación vacía.
@@ -60,12 +63,11 @@ public class Publicacion implements Serializable {
     /**
      * Crea una publicación con la fecha de creación, título y contenido especificados.
      * 
-     * @param fechaHoraCreacion la fecha y hora de creación de la publicación
      * @param titulo el título de la publicación
      * @param contenido el contenido de la publicación
      */
-    public Publicacion(Calendar fechaHoraCreacion, String titulo, String contenido) {
-        this.fechaHoraCreacion = fechaHoraCreacion;
+    public Publicacion(String titulo, String contenido) {
+        this.fechaHoraCreacion = Calendar.getInstance();
         this.titulo = titulo;
         this.contenido = contenido;
     }
@@ -73,13 +75,12 @@ public class Publicacion implements Serializable {
     /**
      * Crea una publicación con la fecha de creación, título, contenido y fecha de edición.
      * 
-     * @param fechaHoraCreacion la fecha y hora de creación de la publicación
      * @param titulo el título de la publicación
      * @param contenido el contenido de la publicación
      * @param fechaHoraEdicion la fecha y hora de edición de la publicación
      */
-    public Publicacion(Calendar fechaHoraCreacion, String titulo, String contenido, Calendar fechaHoraEdicion) {
-        this.fechaHoraCreacion = fechaHoraCreacion;
+    public Publicacion(String titulo, String contenido, Calendar fechaHoraEdicion) {
+        this.fechaHoraCreacion = Calendar.getInstance();
         this.titulo = titulo;
         this.contenido = contenido;
         this.fechaHoraEdicion = fechaHoraEdicion;
@@ -101,6 +102,15 @@ public class Publicacion implements Serializable {
         this.contenido = contenido;
         this.fechaHoraEdicion = fechaHoraEdicion;
     }
+
+    public Publicacion(String titulo, String contenido, String url) {
+        this.fechaHoraCreacion = Calendar.getInstance();
+        this.titulo = titulo;
+        this.contenido = contenido;
+        this.url = url;
+    }
+    
+    
 
     /**
      * Obtiene el identificador único de la publicación.
@@ -192,6 +202,19 @@ public class Publicacion implements Serializable {
         this.fechaHoraEdicion = fechaHoraEdicion;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return "Publicacion{" + "id=" + id + ", fechaHoraCreacion=" + fechaHoraCreacion + ", titulo=" + titulo + ", contenido=" + contenido + ", fechaHoraEdicion=" + fechaHoraEdicion + ", url=" + url + '}';
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

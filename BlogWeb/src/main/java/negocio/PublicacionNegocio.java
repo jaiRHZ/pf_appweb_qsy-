@@ -44,4 +44,13 @@ public class PublicacionNegocio {
         }
         return publicacionesAncladas;
     }
+    
+    public Comun consultarPublicacionComunId(Long id){
+        return (Comun) facade.usePublicacionDAO().findPublicacion(id);
+    }
+    
+    public void eliminarPublicacion(Long id){
+        facade.usePublicacionDAO().destroy(id);
+    }
+    
 }
